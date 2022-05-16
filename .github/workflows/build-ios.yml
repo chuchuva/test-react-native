@@ -42,7 +42,10 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - name: Restore node packages
-      - run: npm ci --no-audit
+        run: npm ci --no-audit
       - name: Build app
         run: |
           echo 'TODO: build'
+      - name: My first step
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
+        run: echo This event is a pull request that had an assignee removed.
