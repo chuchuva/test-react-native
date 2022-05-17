@@ -43,5 +43,6 @@ jobs:
           certificate-password: ${{ secrets.P12_PASSWORD }}
           workspace-path: ios/TestReactNative.xcworkspace
           scheme: TestReactNative
+          update-targets: none
       - run: ls -lh
       - run: ls ios -lh
