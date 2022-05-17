@@ -33,10 +33,9 @@ jobs:
           security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
           
-          ls -l
           echo Here is RUNNER_TEMP: $RUNNER_TEMP
-          ls -l /Users/runner/work/_temp
           ls -l $RUNNER_TEMP
+          md5sum $CERTIFICATE_PATH
 
           # apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
