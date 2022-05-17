@@ -61,5 +61,12 @@ jobs:
       - name: Install Pods
         run: cd ios && pod install --repo-update
       - name: Build app
-        run: |
-          echo 'TODO: build'
+        run: >
+         xcodebuild archive
+         -sdk iphoneos
+         -workspace ios/TestReactNative.xcworkspace
+         -scheme TestReactNative
+         -configuration Release
+         -archivePath TestReactNative.xcarchive
+      - run: ls -lh
+      - run: ls ios -lh
