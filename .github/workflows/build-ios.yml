@@ -43,5 +43,10 @@ jobs:
           certificate-password: ${{ secrets.P12_PASSWORD }}
           workspace-path: ios/TestReactNative.xcworkspace
           scheme: TestReactNative
-      - run: ls -lh
-      - run: ls ios -lh
+      - name: 'Upload app to TestFlight'
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          app-path: 'output.ipa'
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
