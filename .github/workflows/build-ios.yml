@@ -35,7 +35,7 @@ jobs:
           
           echo Here is RUNNER_TEMP: $RUNNER_TEMP
           ls -l $RUNNER_TEMP
-          md5sum $CERTIFICATE_PATH
+          md5 $CERTIFICATE_PATH
 
           # apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
